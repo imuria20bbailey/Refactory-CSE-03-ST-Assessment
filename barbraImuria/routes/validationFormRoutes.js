@@ -9,17 +9,17 @@ const router = express.Router();
 const Application = require('../models/validation');
 
 //creating the route to get the form
-router.get('/form', (req, res) => {
+router.get('/new-student', (req, res) => {
     res.render('./validationForm');
  });
 
  //creating the post route
-router.post('/add-form', async(req, res) => {
+router.post('/add-student', async(req, res) => {
     try {
         const studentForm = new Application(req.body) //the contact here is the model name
         await studentForm.save();
         console.log(req.body);
-        res.redirect('validationForm')  
+        res.render('./validationForm')  
     } catch (error) { console.log(error);
         
     }

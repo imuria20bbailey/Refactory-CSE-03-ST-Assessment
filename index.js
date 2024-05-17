@@ -42,14 +42,12 @@ app.use(express.json());
 app.use('/', validationFormRoutes)
 
 
-
-
-
-
-
 //for invalid routes
 app.get('*', (req, res) => {
-    res.send('400! This is invalid URL.');
+    res.render('./400');
+    //res.send('400! Page not found. The page you are looking for does not exists.');
 });
+
+
 //boostrapping the server
 app.listen(port, () => console.log(`listening on port ${port}`));

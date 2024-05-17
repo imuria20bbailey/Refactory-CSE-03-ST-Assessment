@@ -1,4 +1,5 @@
 //introducing mongoose to the file
+const { Timestamp } = require('mongodb');
 const mongoose = require('mongoose');
 
 //access schema function in mongoose and storing in the variable schema
@@ -49,6 +50,12 @@ const applicationSchema = new Schema({
 
     residence:{
         type: String,
+        trim: true
+    },
+
+    createdAt:{
+        type: Date,
+        default: Date.now,
         trim: true
     }
 
